@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的故事</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/masonry.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-category="all">全部照片</a>
+                <a href="#" class="nav-link" data-category="contact">我们的联系方式</a>
+                <a href="#" class="nav-link" data-category="food">我们吃的美食</a>
+                <a href="#" class="nav-link" data-category="places">我们去玩的地方</a>
+                <a href="#" class="nav-link" data-category="future">我们计划的未来</a>
+            </div>
+            <div class="nav-upload">
+                <input type="file" id="imageUpload" accept="image/*" multiple class="hidden-input">
+                <button id="uploadBtn" class="upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>上传照片</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header">
+            <div class="date-display" id="dateDisplay"></div>
+            <div class="love-counter">
+                <div class="love-counter-content">
+                    <div class="love-title">我们相识已经</div>
+                    <div class="love-time" id="loveTime">
+                        <span class="time-unit">
+                            <span class="time-number" id="loveDays">0</span>
+                            <span class="time-label">天</span>
+                        </span>
+                        <span class="time-unit">
+                            <span class="time-number" id="loveHours">0</span>
+                            <span class="time-label">小时</span>
+                        </span>
+                        <span class="time-unit">
+                            <span class="time-number" id="loveMinutes">0</span>
+                            <span class="time-label">分钟</span>
+                        </span>
+                        <span class="time-unit">
+                            <span class="time-number" id="loveSeconds">0</span>
+                            <span class="time-label">秒</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="gallery-container">
+            <div class="gallery" id="gallery"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <h2>选择分类和时间</h2>
+            <div class="upload-form">
+                <div class="form-group">
+                    <label>选择分类</label>
+                    <div class="category-options">
+                        <button class="category-option" data-category="contact">
+                            <i class="fas fa-phone"></i>
+                            我们的联系方式
+                        </button>
+                        <button class="category-option" data-category="food">
+                            <i class="fas fa-utensils"></i>
+                            我们吃的美食
+                        </button>
+                        <button class="category-option" data-category="places">
+                            <i class="fas fa-map-marker-alt"></i>
+                            我们去玩的地方
+                        </button>
+                        <button class="category-option" data-category="future">
+                            <i class="fas fa-calendar-alt"></i>
+                            我们计划的未来
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>选择时间</label>
+                    <div class="datetime-container">
+                        <input type="datetime-local" id="uploadDateTime" class="datetime-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>添加描述</label>
+                    <textarea id="uploadDescription" class="description-input" placeholder="添加照片描述..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="photoTemplate">
+        <div class="photo-item">
+            <img class="photo-image" src="" alt="">
+            <div class="photo-info">
+                <div class="photo-category"></div>
+                <div class="date-display">
+                    <i class="fas fa-calendar"></i>
+                    <span class="photo-date"></span>
+                </div>
+                <div class="photo-description" contenteditable="true" placeholder="添加描述..."></div>
+                <div class="comments-section">
+                    <div class="comments-list"></div>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="添加评论...">
+                        <button class="comment-submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-actions">
+                    <select class="category-select">
+                        <option value="contact">我们的联系方式</option>
+                        <option value="food">我们吃的美食</option>
+                        <option value="places">我们去玩的地方</option>
+                        <option value="future">我们计划的未来</option>
+                    </select>
+                    <button class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                        删除
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
